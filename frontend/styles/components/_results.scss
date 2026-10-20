@@ -1,0 +1,268 @@
+@use "../variables" as *;
+
+.results-section {
+  width: min(calc(100% - 48px), 850px);
+  margin: 32px auto 0;
+  padding: 28px;
+  border: 1px solid $color-border;
+  border-radius: $radius-card;
+  background: rgba(16, 19, 29, 0.88);
+  scroll-margin-top: 24px;
+}
+
+.results-count {
+  padding: 7px 10px;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  color: $color-muted;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.verdict-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 22px;
+  padding: 22px;
+  border: 1px solid $color-border;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.025);
+
+  h3 {
+    margin: 6px 0;
+    font-size: 19px;
+    letter-spacing: -0.4px;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+}
+
+.verdict-symbol {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 11px;
+  font-size: 18px;
+  font-weight: 750;
+}
+
+.verdict-label {
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.2px;
+  opacity: 0.85;
+}
+
+.verdict-danger {
+  color: $color-danger;
+  border-color: rgba(255, 133, 141, 0.24);
+  background: rgba(255, 133, 141, 0.045);
+}
+
+.verdict-warning {
+  color: $color-warning;
+  border-color: rgba(245, 189, 104, 0.24);
+  background: rgba(245, 189, 104, 0.045);
+}
+
+.verdict-neutral {
+  color: $color-accent;
+  border-color: rgba(167, 139, 250, 0.24);
+  background: rgba(167, 139, 250, 0.045);
+}
+
+.verdict-copy p {
+  color: #b9becd;
+}
+
+.findings-list,
+.url-results {
+  margin-top: 28px;
+
+  > h3 {
+    margin: 0 0 13px;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+  }
+}
+
+.finding-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 17px 0;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.finding-indicator {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.finding-medium {
+  color: $color-warning;
+  background: rgba(245, 189, 104, 0.1);
+}
+
+.finding-high {
+  color: $color-danger;
+  background: rgba(255, 133, 141, 0.1);
+}
+
+.finding-low {
+  color: $color-accent;
+  background: rgba(167, 139, 250, 0.1);
+}
+
+.finding-copy {
+  flex: 1;
+  min-width: 0;
+
+  h4 {
+    margin: 2px 0 6px;
+    font-size: 13px;
+    font-weight: 650;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+}
+
+.finding-severity {
+  flex-shrink: 0;
+  color: $color-muted;
+  font-size: 10px;
+  text-transform: capitalize;
+}
+
+.finding-url {
+  display: block;
+  margin-top: 9px;
+  color: $color-warning;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.empty-findings {
+  display: flex;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid $color-border;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+
+  > span {
+    color: $color-success;
+  }
+
+  h4 {
+    margin: 0 0 7px;
+    font-size: 13px;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+}
+
+.url-result {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid $color-border;
+
+  code {
+    min-width: 0;
+    color: #d4c5ff;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+  }
+
+  span {
+    flex-shrink: 0;
+    color: $color-muted;
+    font-size: 10px;
+  }
+}
+
+.recommendation-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-top: 26px;
+  padding: 20px;
+  border: 1px solid rgba(103, 217, 160, 0.17);
+  border-radius: 12px;
+  background: rgba(103, 217, 160, 0.035);
+
+  h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+  }
+
+  p {
+    margin: 0;
+    color: $color-muted;
+    font-size: 12px;
+    line-height: 1.9;
+  }
+}
+
+.recommendation-icon {
+  color: $color-success;
+}
+
+.results-disclaimer {
+  margin: 18px 0 0;
+  color: $color-muted;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.reset-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 10px 0;
+  border: 0;
+  color: $color-accent;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}

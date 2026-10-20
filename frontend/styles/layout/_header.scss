@@ -1,0 +1,89 @@
+@use "../variables" as *;
+.site-header {
+    width: min(calc(100% - 48px), $container-width);
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-inline: auto;
+    border-bottom: 1px solid $color-border;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: $color-text;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -0.6px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    flex-shrink: 0;
+    place-items: center;
+    border: 1px solid rgba(167, 139, 250, 0.32);
+    border-radius: 11px;
+    color: $color-accent;
+    background: rgba(139, 92, 246, 0.12);
+  
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+  
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: $color-muted;
+    font-size: 13px;
+  
+    a {
+      color: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+      transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+  
+      &:hover {
+        color: $color-text;
+      }
+  
+      &:focus-visible {
+        outline: 2px solid $color-accent;
+        outline-offset: 4px;
+        border-radius: 4px;
+      }
+    }
+  
+    .nav-link-active {
+      color: $color-text;
+    }
+  
+    .history-nav-link {
+      white-space: nowrap;
+    }
+  
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 15px;
+      border: 1px solid $color-border;
+      border-radius: 10px;
+      color: $color-text;
+      background: rgba(255, 255, 255, 0.035);
+    }
+  }

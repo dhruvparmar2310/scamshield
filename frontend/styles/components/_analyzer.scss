@@ -1,0 +1,256 @@
+@use "../variables" as *;
+
+.hero {
+  width: min(calc(100% - 48px), $container-width);
+  margin-inline: auto;
+  padding: 100px 0 64px;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 30px 0 20px;
+  font-size: clamp(42px, 6.4vw, 76px);
+  line-height: 1.06;
+  letter-spacing: -4px;
+  font-weight: 730;
+
+  span {
+    color: $color-accent;
+  }
+}
+
+.hero-description {
+  max-width: 610px;
+  margin: 0 auto;
+  color: $color-muted;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.trust-line {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 26px;
+  color: #c1c5d2;
+  font-size: 12px;
+
+  span span {
+    margin-right: 6px;
+    color: $color-success;
+  }
+}
+
+.analyzer-section {
+  width: min(calc(100% - 48px), 850px);
+  margin-inline: auto;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  border-radius: $radius-card;
+  background:
+    linear-gradient(140deg, rgba(167, 139, 250, 0.055), transparent 42%),
+    $color-surface;
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.025) inset;
+  scroll-margin-top: 24px;
+}
+
+.analyzer-heading,
+.results-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.analyzer-heading h2,
+.results-topline h2 {
+  margin: 10px 0 7px;
+  font-size: 23px;
+  letter-spacing: -0.8px;
+}
+
+.analyzer-heading p {
+  margin: 0;
+  color: $color-muted;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.input-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border: 1px solid $color-border;
+  border-radius: 9px;
+  color: #c6c9d5;
+  font-size: 11px;
+  white-space: nowrap;
+
+  span {
+    color: $color-accent;
+  }
+}
+
+.analyzer-section form {
+  margin-top: 25px;
+}
+
+.analyzer-section textarea {
+  display: block;
+  width: 100%;
+  min-height: 155px;
+  padding: 18px;
+  resize: vertical;
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  border-radius: 12px;
+  outline: none;
+  color: $color-text;
+  background: #0b0e16;
+  font-size: 14px;
+  line-height: 1.8;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+
+  &:focus {
+    border-color: rgba(167, 139, 250, 0.7);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.11);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+  }
+}
+
+.input-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+  color: $color-muted;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.character-count {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.analyze-button {
+  width: 100%;
+  min-height: 51px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 23px;
+  padding: 14px 20px;
+  border: 1px solid rgba(196, 181, 253, 0.28);
+  border-radius: 11px;
+  color: #fff;
+  background: linear-gradient(110deg, #8054ed, #6d45d6);
+  box-shadow: 0 8px 25px rgba(109, 69, 214, 0.17);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    filter 180ms ease,
+    box-shadow 180ms ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+    box-shadow: 0 12px 28px rgba(109, 69, 214, 0.25);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 3px;
+  }
+}
+
+.loading-spinner {
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: scamshield-spin 700ms linear infinite;
+}
+
+@keyframes scamshield-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.examples {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.examples-label {
+  margin-right: 3px;
+  color: $color-muted;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.example-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 7px 11px;
+  border: 1px solid $color-border;
+  border-radius: 8px;
+  color: #d2d5e0;
+  background: rgba(255, 255, 255, 0.025);
+  font-size: 11px;
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease;
+
+  span {
+    color: $color-accent;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: rgba(167, 139, 250, 0.45);
+    background: rgba(139, 92, 246, 0.09);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.form-error {
+  margin: 14px 0 0;
+  color: $color-danger;
+  font-size: 12px;
+  line-height: 1.6;
+
+  span {
+    margin-right: 5px;
+    font-weight: 800;
+  }
+}

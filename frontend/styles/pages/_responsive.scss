@@ -1,0 +1,442 @@
+@use "../variables" as *;
+
+@media (min-width: 1400px) {
+  .hero {
+    padding-top: 115px;
+  }
+}
+
+@media (max-width: 900px) {
+  .tools-grid,
+  .tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tool-card:last-child {
+    grid-column: 1 / -1;
+    min-height: 240px;
+  }
+
+  .site-footer {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-credit {
+    order: 3;
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header,
+  .hero,
+  .analyzer-section,
+  .results-section,
+  .url-checker-section,
+  .scan-history-section,
+  .how-section,
+  .privacy-section,
+  .site-footer {
+    width: min(calc(100% - 32px), $container-width);
+  }
+
+  .tools-section,
+  .dashboard-privacy,
+  .feature-page,
+  .tool-section {
+    width: min(calc(100% - 32px), $container-width);
+  }
+
+  .feature-page {
+    padding-top: 42px;
+    padding-bottom: 60px;
+  }
+
+  .feature-page-intro h1 {
+    letter-spacing: -1.5px;
+  }
+
+  .site-header {
+    min-height: 70px;
+  }
+
+  .header-nav {
+    gap: 16px;
+
+    > a:not(.nav-cta) {
+      display: none;
+    }
+
+    .nav-cta {
+      padding: 10px 12px;
+      font-size: 11px;
+    }
+  }
+
+  .history-nav-link {
+    display: none;
+  }
+
+  .hero {
+    padding: 76px 0 44px;
+  }
+
+  .hero h1 {
+    margin-top: 25px;
+    font-size: clamp(40px, 9vw, 60px);
+    letter-spacing: -2.5px;
+  }
+
+  .hero-description {
+    max-width: 520px;
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .trust-line {
+    gap: 12px 18px;
+    font-size: 11px;
+  }
+
+  .analyzer-section {
+    padding: 22px;
+  }
+
+  .analyzer-heading {
+    align-items: flex-start;
+  }
+
+  .analyzer-heading h2,
+  .results-topline h2 {
+    font-size: 21px;
+  }
+
+  .input-type-badge {
+    display: none;
+  }
+
+  .examples-label {
+    width: 100%;
+  }
+
+  .results-section {
+    padding: 22px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .step-card {
+    min-height: 0;
+    padding: 22px;
+
+    h3 {
+      margin-top: 18px;
+    }
+  }
+
+  .how-section {
+    padding-top: 85px;
+  }
+
+  .privacy-section {
+    margin-top: 65px;
+    padding: 22px;
+  }
+
+  .dashboard-privacy {
+    margin-top: 44px;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+    margin-top: 55px;
+  }
+
+  .history-overview {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .scan-history-section {
+    width: min(calc(100% - 24px), 900px);
+    padding: 40px 0 48px;
+  }
+
+  .scan-history-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .scan-history-meta {
+    flex-direction: column;
+    align-items: flex-start;
+
+    time {
+      margin-left: 0;
+    }
+  }
+
+  .scan-history-item {
+    padding: 1rem;
+  }
+
+  .url-checker-section {
+    margin-block: 32px;
+    padding: 20px;
+
+    .url-checker-heading h2 {
+      font-size: 21px;
+    }
+
+    .url-checker-form {
+      grid-template-columns: minmax(0, 1fr);
+
+      label {
+        grid-column: auto;
+      }
+    }
+
+    .url-checker-button {
+      width: 100%;
+    }
+
+    .url-checker-details {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .tools-grid,
+  .tool-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tool-card,
+  .tool-card:last-child {
+    grid-column: auto;
+    min-height: 245px;
+    padding: 21px;
+  }
+
+  .tools-intro h2 {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  .dashboard-privacy {
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .history-overview {
+    gap: 10px;
+  }
+
+  .history-overview-card {
+    padding: 16px;
+
+    > strong {
+      font-size: 27px;
+    }
+
+    > span:last-child {
+      font-size: 11px;
+      line-height: 1.6;
+    }
+  }
+
+  .history-toolbar {
+    align-items: flex-start;
+  }
+
+  .history-group-heading {
+    align-items: flex-start;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      max-width: 250px;
+    }
+  }
+
+  .scan-history-clear {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .footer-credit {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header,
+  .hero,
+  .analyzer-section,
+  .results-section,
+  .how-section,
+  .privacy-section,
+  .site-footer {
+    width: calc(100% - 28px);
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 16px;
+  }
+
+  .brand-mark {
+    width: 31px;
+    height: 31px;
+  }
+
+  .header-nav .nav-cta {
+    gap: 6px;
+    padding: 9px 10px;
+    font-size: 10px;
+  }
+
+  .hero {
+    padding-top: 60px;
+  }
+
+  .eyebrow {
+    gap: 7px;
+    padding: 9px 10px;
+    font-size: 8px;
+    letter-spacing: 1.1px;
+  }
+
+  .hero h1 {
+    font-size: clamp(37px, 10vw, 47px);
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .trust-line {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .analyzer-section,
+  .results-section {
+    padding: 18px;
+    border-radius: 15px;
+  }
+
+  .analyzer-heading h2,
+  .results-topline h2 {
+    font-size: 19px;
+  }
+
+  .analyzer-heading p {
+    font-size: 12px;
+  }
+
+  .analyzer-section textarea {
+    min-height: 145px;
+    padding: 14px;
+    font-size: 13px;
+  }
+
+  .input-footer {
+    align-items: flex-start;
+    font-size: 10px;
+  }
+
+  .character-count {
+    font-size: 9px;
+  }
+
+  .examples {
+    gap: 8px;
+  }
+
+  .example-chip {
+    font-size: 10px;
+  }
+
+  .results-topline {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .results-count {
+    font-size: 9px;
+  }
+
+  .verdict-card {
+    gap: 12px;
+    padding: 16px;
+
+    h3 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+  .finding-card {
+    gap: 10px;
+  }
+
+  .finding-severity {
+    font-size: 9px;
+  }
+
+  .url-result {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .recommendation-card {
+    padding: 16px;
+  }
+
+  .privacy-section {
+    gap: 13px;
+    padding: 18px;
+
+    h2 {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  .privacy-icon {
+    width: 33px;
+    height: 33px;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

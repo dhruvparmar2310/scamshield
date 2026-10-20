@@ -1,0 +1,15 @@
+@use "./variables";
+@use "./globals";
+
+@use "./layout/header";
+@use "./layout/footer";
+
+@use "./components/shared";
+@use "./components/analyzer";
+@use "./components/results";
+@use "./components/url-checker";
+
+@use "./pages/home";
+@use "./pages/feature-page";
+@use "./pages/scan-history";
+@use "./pages/responsive";
