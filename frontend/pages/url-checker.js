@@ -5,20 +5,27 @@ export default function URLCheckerPage() {
   return (
     <>
       <Head>
-        <title>URL Safety Checker | ScamShield</title>
+        <title>Free URL Safety Checker | CyberMentis</title>
+
         <meta
           name="description"
-          content="Inspect URLs for common structural warning signs with ScamShield."
+          content="Check suspicious links for phishing warning signs, misleading domains, private IP addresses, and unsafe URL structures. Understand potential risks before clicking."
         />
       </Head>
 
       <main className="feature-page">
         <div className="feature-page-intro">
-          <span className="section-kicker">LINK INSPECTION</span>
+          <span className="section-kicker">
+            LINK SECURITY & AWARENESS
+          </span>
+
           <h1>URL Safety Checker.</h1>
+
           <p>
-            Inspect a link for common warning signs before opening it. This
-            check does not guarantee that a website is safe or malicious.
+            Received a suspicious link? Check its structure
+            without opening the website. CyberMentis helps
+            you identify warning signs, understand potential
+            risks, and learn how to protect your information.
           </p>
         </div>
 

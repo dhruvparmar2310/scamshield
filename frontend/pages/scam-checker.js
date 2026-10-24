@@ -5,10 +5,10 @@ export default function ScamCheckerPage() {
   return (
     <>
       <Head>
-        <title>Scam Message Checker | ScamShield</title>
+        <title>Scam Message Checker | CyberMentis</title>
         <meta
           name="description"
-          content="Analyze suspicious messages for common scam warning signs with ScamShield."
+          content="Analyze suspicious messages for common scam warning signs with CyberMentis."
         />
       </Head>
 

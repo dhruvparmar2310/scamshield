@@ -21,6 +21,15 @@ const tools = [
   },
   {
     number: "03",
+    icon: "◎",
+    title: "Cybersecurity Quiz",
+    description:
+      "Test your cybersecurity awareness with realistic scam scenarios, single-select and multi-select questions, and instant percentage-based results.",
+    href: "/quiz",
+    action: "Start the quiz",
+  },
+  {
+    number: "04",
     icon: "◷",
     title: "Scan History",
     description:
@@ -32,26 +41,42 @@ const tools = [
 
 export default function ToolCards() {
   return (
-    <section className="tools-section" aria-labelledby="tools-title">
+    <section
+      className="tools-section"
+      aria-labelledby="tools-title"
+    >
       <div className="tools-intro">
-        <span className="section-kicker">YOUR SECURITY WORKSPACE</span>
+        <span className="section-kicker">
+          YOUR SECURITY WORKSPACE
+        </span>
+
         <h2 id="tools-title">Choose your tool.</h2>
+
         <p className="hero-description">
-          Start with the check that matches what you want to investigate.
+          Analyze suspicious content, test your cybersecurity
+          knowledge, or review your previous scans.
         </p>
       </div>
 
       <div className="tools-grid">
         {tools.map((tool) => (
-          <Link href={tool.href} className="tool-card" key={tool.href}>
+          <Link
+            href={tool.href}
+            className="tool-card"
+            key={tool.href}
+          >
             <div className="tool-card-top">
               <span className="tool-icon" aria-hidden="true">
                 {tool.icon}
               </span>
-              <span className="tool-number">{tool.number}</span>
+
+              <span className="tool-number">
+                {tool.number}
+              </span>
             </div>
 
             <h3>{tool.title}</h3>
+
             <p>{tool.description}</p>
 
             <div className="tool-card-action">

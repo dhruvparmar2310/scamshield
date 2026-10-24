@@ -1,0 +1,389 @@
+
+@import "../variables";
+
+.privacy-policy-page {
+  min-height: 100vh;
+  padding: $space-10 $space-6 7rem;
+  background:
+    radial-gradient(
+      ellipse at 80% 0%,
+      rgba($color-accent-strong, 0.09),
+      transparent 42%
+    ),
+    $color-bg;
+  color: $color-text;
+  font-family: $font-family;
+
+  .privacy-policy-container {
+    max-width: $container-width;
+    margin: 0 auto;
+  }
+
+  // Breadcrumb
+  .privacy-policy-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    margin-bottom: 4rem;
+    font-size: 0.8125rem;
+    color: $color-muted;
+
+    a {
+      color: $color-muted;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+
+    span:last-child {
+      color: $color-text;
+    }
+  }
+
+  // Hero
+  .privacy-policy-hero {
+    max-width: 52rem;
+    margin-bottom: $space-12;
+
+    .privacy-policy-eyebrow {
+      display: inline-block;
+      margin-bottom: $space-5;
+      color: $color-accent;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.125rem;
+    }
+
+    h1 {
+      margin: 0 0 $space-6;
+      color: $color-text;
+      font-size: clamp(2.625rem, 6vw, 4.75rem);
+      font-weight: 750;
+      line-height: 1.1;
+      letter-spacing: -0.045em;
+
+      span {
+        color: $color-accent;
+      }
+    }
+
+    > p {
+      max-width: 40rem;
+      margin: 0 0 $space-6;
+      color: $color-muted;
+      font-size: 1.0625rem;
+      line-height: 1.85;
+    }
+  }
+
+  .privacy-policy-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $space-3;
+    color: $color-muted;
+    font-size: 0.75rem;
+
+    .privacy-policy-meta-divider {
+      width: 0.25rem;
+      height: 0.25rem;
+      border-radius: 50%;
+      background: $color-accent;
+    }
+  }
+
+  // Highlights
+  .privacy-policy-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $space-4;
+    margin-bottom: 5rem;
+  }
+
+  .privacy-policy-highlight {
+    padding: $space-6;
+    border: 1px solid $color-border;
+    border-radius: $radius-card;
+    background: $color-surface;
+    transition:
+      border-color 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      border-color: rgba($color-accent, 0.35);
+      transform: translateY(-3px);
+    }
+
+    .privacy-policy-highlight-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.375rem;
+      height: 2.375rem;
+      margin-bottom: $space-5;
+      border: 1px solid rgba($color-accent, 0.2);
+      border-radius: $radius-control;
+      background: rgba($color-accent, 0.1);
+      color: $color-accent;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    h3 {
+      margin: 0 0 $space-3;
+      color: $color-text;
+      font-size: 1.0625rem;
+      font-weight: 650;
+    }
+
+    p {
+      margin: 0;
+      color: $color-muted;
+      font-size: 0.8125rem;
+      line-height: 1.8;
+    }
+  }
+
+  // Main Layout
+  .privacy-policy-layout {
+    display: grid;
+    grid-template-columns: 16.25rem minmax(0, 1fr);
+    gap: 4rem;
+    align-items: start;
+  }
+
+  // Sticky Sidebar
+  .privacy-policy-sidebar-inner {
+    position: sticky;
+    top: 6.875rem;
+    padding: $space-6;
+    border: 1px solid $color-border;
+    border-radius: $radius-card;
+    background: $color-surface;
+
+    h2 {
+      margin: 0 0 $space-5;
+      color: $color-text;
+      font-size: 0.8125rem;
+      font-weight: 700;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      gap: $space-1;
+
+      a {
+        display: block;
+        padding: $space-3;
+        border-radius: $radius-control;
+        color: $color-muted;
+        font-size: 0.75rem;
+        line-height: 1.5;
+        text-decoration: none;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+          background: rgba($color-accent, 0.1);
+          color: $color-accent;
+        }
+      }
+    }
+  }
+
+  // Introduction
+  .privacy-policy-introduction {
+    padding-bottom: $space-8;
+    margin-bottom: $space-8;
+    border-bottom: 1px solid $color-border;
+
+    h2 {
+      margin: 0 0 $space-5;
+      color: $color-text;
+      font-size: 1.625rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+    }
+
+    p {
+      margin: 0 0 $space-4;
+      color: $color-muted;
+      font-size: 0.875rem;
+      line-height: 1.95;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Policy Sections
+  .privacy-policy-section {
+    scroll-margin-top: 6.25rem;
+    padding-bottom: $space-8;
+    margin-bottom: $space-8;
+    border-bottom: 1px solid $color-border;
+
+    h2 {
+      margin: 0 0 $space-5;
+      color: $color-text;
+      font-size: 1.3125rem;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 $space-4;
+      color: $color-muted;
+      font-size: 0.875rem;
+      line-height: 1.95;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Important Safety Notice
+  .privacy-policy-notice {
+    padding: $space-8;
+    margin: $space-12 0;
+    border: 1px solid rgba($color-warning, 0.25);
+    border-radius: $radius-card;
+    background: rgba($color-warning, 0.045);
+
+    .privacy-policy-notice-label {
+      display: block;
+      margin-bottom: $space-4;
+      color: $color-warning;
+      font-size: 0.625rem;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+    }
+
+    h3 {
+      margin: 0 0 $space-3;
+      color: $color-text;
+      font-size: 1.1875rem;
+      font-weight: 650;
+    }
+
+    p {
+      margin: 0;
+      color: $color-muted;
+      font-size: 0.8125rem;
+      line-height: 1.9;
+    }
+  }
+
+  // Bottom CTA
+  .privacy-policy-bottom {
+    padding-top: $space-8;
+
+    h2 {
+      margin: 0 0 $space-3;
+      color: $color-text;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    p {
+      max-width: 34rem;
+      margin: 0 0 $space-6;
+      color: $color-muted;
+      font-size: 0.875rem;
+      line-height: 1.85;
+    }
+
+    .privacy-policy-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: $space-3;
+      padding: $space-3 $space-5;
+      border: 1px solid transparent;
+      border-radius: $radius-control;
+      background: $color-accent-strong;
+      color: $color-text;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+      &:hover {
+        background: $color-accent;
+        transform: translateY(-2px);
+      }
+
+      &:focus-visible {
+        outline: 2px solid $color-accent;
+        outline-offset: 3px;
+      }
+    }
+  }
+
+  // Tablet
+  @media (max-width: 900px) {
+    .privacy-policy-layout {
+      grid-template-columns: 1fr;
+      gap: $space-10;
+    }
+
+    .privacy-policy-sidebar {
+      display: none;
+    }
+
+    .privacy-policy-highlights {
+      margin-bottom: $space-12;
+    }
+  }
+
+  // Mobile
+  @media (max-width: 640px) {
+    padding: $space-6 $space-4 4.5rem;
+
+    .privacy-policy-breadcrumb {
+      margin-bottom: $space-12;
+    }
+
+    .privacy-policy-hero {
+      margin-bottom: $space-10;
+
+      h1 {
+        letter-spacing: -0.035em;
+      }
+
+      > p {
+        font-size: 0.875rem;
+        line-height: 1.8;
+      }
+    }
+
+    .privacy-policy-highlights {
+      grid-template-columns: 1fr;
+      gap: $space-3;
+      margin-bottom: $space-12;
+    }
+
+    .privacy-policy-highlight {
+      padding: $space-5;
+    }
+
+    .privacy-policy-section {
+      h2 {
+        font-size: 1.1875rem;
+      }
+    }
+
+    .privacy-policy-notice {
+      padding: $space-6;
+    }
+  }
+}

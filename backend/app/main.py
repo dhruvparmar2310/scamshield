@@ -8,7 +8,7 @@ from app.url_checker import check_url
 
 
 app = FastAPI(
-    title="ScamShield API",
+    title="CyberMentis API",
     description="Rule-based scam message and URL analysis.",
     version="1.1.0",
 )

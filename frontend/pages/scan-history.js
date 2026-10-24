@@ -5,10 +5,10 @@ export default function ScanHistoryPage() {
   return (
     <>
       <Head>
-        <title>Scan History | ScamShield</title>
+        <title>Scan History | CyberMentis</title>
         <meta
           name="description"
-          content="Review saved message and URL scan summaries in ScamShield."
+          content="Review saved message and URL scan summaries in CyberMentis."
         />
       </Head>
 

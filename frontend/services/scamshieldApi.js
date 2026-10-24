@@ -1,6 +1,6 @@
 
 const API_URL =
-  process.env.NEXT_PUBLIC_SCAMSHIELD_API_URL ||
+process.env.NEXT_PUBLIC_SCAMSHIELD_API_URL ||
   "http://127.0.0.1:8000";
 
 async function postJson(path, payload, fallbackMessage) {
@@ -16,7 +16,7 @@ async function postJson(path, payload, fallbackMessage) {
     });
   } catch {
     throw new Error(
-      "Unable to connect to ScamShield. Make sure the backend is running."
+      "Unable to connect to CyberMentis. Make sure the backend is running."
     );
   }
 

@@ -17,7 +17,7 @@ export default function Footer() {
             </svg>
           </span>
 
-          <span>ScamShield</span>
+          <span>CyberMentis</span>
         </Link>
 
         <p>Built to help people think before they click.</p>
@@ -37,13 +37,11 @@ export default function Footer() {
 
         <span>
           Created for educational purposes to support cybersecurity awareness.
-          ScamShield is not a guarantee that a message or URL is safe.
+          CyberMentis is not a guarantee that a message or URL is safe.
         </span>
       </div>
 
-      <p className="footer-disclaimer">
-        Educational use only · Stay alert online.
-      </p>
+      <Link href="/privacy-policy">Privacy Policy</Link>
     </footer>
   );
 }

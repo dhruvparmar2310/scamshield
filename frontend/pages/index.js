@@ -7,10 +7,13 @@ export default function HomePage() {
   return (
     <>
       <Head>
-        <title>ScamShield | Cybersecurity Awareness Toolkit</title>
+        <title>
+          CyberMentis | Cybersecurity Awareness Toolkit
+        </title>
+
         <meta
           name="description"
-          content="Analyze suspicious messages, inspect URLs, and review scan history with ScamShield, an educational cybersecurity awareness tool."
+          content="Analyze suspicious messages, inspect URLs, test your cybersecurity knowledge with interactive quizzes, and review scan history using CyberMentis's free security awareness toolkit."
         />
       </Head>
 

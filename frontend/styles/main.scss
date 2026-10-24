@@ -8,8 +8,10 @@
 @use "./components/analyzer";
 @use "./components/results";
 @use "./components/url-checker";
+@use "./components/quiz";
 
 @use "./pages/home";
 @use "./pages/feature-page";
 @use "./pages/scan-history";
 @use "./pages/responsive";
+@use "./pages/privacy-policy";
