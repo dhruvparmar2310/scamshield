@@ -1,5 +1,7 @@
 
-from fastapi import FastAPI
+import os
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
@@ -13,14 +15,26 @@ app = FastAPI(
     version="1.1.0",
 )
 
+# Local development origins
+allowed_origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+
+# Production frontend origins from Render environment
+production_origins = os.getenv("FRONTEND_ORIGINS", "")
+
+allowed_origins.extend(
+    origin.strip().rstrip("/")
+    for origin in production_origins.split(",")
+    if origin.strip()
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-    ],
-    allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_origins=allowed_origins,
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Content-Type"],
 )
 
@@ -62,9 +76,7 @@ def url_check(request: URLCheckRequest):
     try:
         return check_url(request.url)
     except ValueError as error:
-        from fastapi import HTTPException
-
         raise HTTPException(
             status_code=422,
             detail=str(error),
-        )
+        ) from error
