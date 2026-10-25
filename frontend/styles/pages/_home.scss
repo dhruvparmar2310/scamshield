@@ -8,61 +8,118 @@
   max-width: 56.25rem;
   margin-inline: auto;
 }
+// ============================================================
+// TOOLS SECTION
+// ============================================================
 
 .tools-section {
   width: min(calc(100% - 3rem), $container-width);
   margin: 0 auto;
-  padding: $space-6 0 0;
+  padding: 4rem 0 0;
 }
 
 .tools-intro {
   max-width: 40.625rem;
 
+  .section-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: $color-accent;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
   h2 {
-    margin: $space-4 0 $space-3;
-    font-size: clamp(1.75rem, 4vw, 2.375rem);
-    line-height: 1.2;
-    letter-spacing: -0.09375rem;
+    margin: 0 0 0.875rem;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    color: $color-text;
+  }
+
+  .hero-description {
+    margin: 0;
+    color: $color-muted;
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
   }
 }
+
+// ============================================================
+// TOOLS GRID
+// ============================================================
 
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: $space-5;
-  margin-top: $space-8;
+  gap: 1.5rem;
+  margin-top: 3.5rem;
 }
+
+// ============================================================
+// PREMIUM TOOL CARD
+// ============================================================
 
 .tool-card {
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  min-height: 15rem;
-  padding: $space-6;
+  min-height: 16rem;
+  padding: 2.25rem;
   overflow: hidden;
 
-  border: 0.0625rem solid $color-border;
+  border: 0.0625rem solid rgba($color-accent, 0.3);
   border-radius: $radius-card;
 
   color: $color-text;
-  background: $color-surface;
+  background: linear-gradient(145deg, rgba($color-surface, 0.95), rgba($color-surface, 0.7));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   text-decoration: none;
 
   transition:
-    transform 200ms ease,
-    border-color 200ms ease,
-    background 200ms ease,
-    box-shadow 200ms ease;
+    transform 280ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 280ms ease,
+    background 280ms ease,
+    box-shadow 280ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  // Subtle interior ambient light sheen on hover
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba($color-accent, 0.04), transparent 40%);
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
 
   &:hover {
-    transform: translateY(-0.25rem);
-    border-color: rgba($color-accent, 0.4);
-    background: $color-surface-raised;
-    box-shadow: 0 1.125rem 2.8125rem rgba(0, 0, 0, 0.17);
+    transform: translateY(-0.375rem);
+    border-color: rgba($color-accent, 0.45);
+    background: linear-gradient(145deg, $color-surface-raised, rgba($color-surface, 0.9));
+    box-shadow: 
+      0 1.25rem 3.5rem -0.75rem rgba(0, 0, 0, 0.4),
+      0 0 0 0.0625rem rgba($color-accent, 0.2);
+
+    &::before {
+      opacity: 1;
+    }
+
+    .tool-icon {
+      border-color: rgba($color-accent, 0.4);
+      background: rgba($color-accent, 0.15);
+      transform: scale(1.04);
+    }
 
     .tool-card-action span {
-      transform: translate(0.125rem, -0.125rem);
+      transform: translate(0.25rem, -0.25rem);
+      color: $color-accent;
     }
   }
 
@@ -72,93 +129,122 @@
   }
 
   h3 {
-    margin: $space-6 0 $space-3;
-    font-size: 1.125rem;
-    line-height: 1.4;
-    letter-spacing: -0.028125rem;
+    margin: 1.75rem 0 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+    color: $color-text;
   }
 
   > p {
     margin: 0;
     max-width: 32rem;
     color: $color-muted;
-    font-size: 0.8125rem;
-    line-height: 1.8;
+    font-size: 0.875rem;
+    line-height: 1.75;
   }
 }
+
+// ============================================================
+// CARD HEADER & METADATA
+// ============================================================
 
 .tool-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $space-3;
+  gap: 1rem;
 }
 
 .tool-icon {
   display: grid;
   place-items: center;
-  width: 2.875rem;
-  height: 2.875rem;
+  width: 3rem;
+  height: 3rem;
 
   border: 0.0625rem solid rgba($color-accent, 0.22);
-  border-radius: $radius-control;
+  border-radius: 0.75rem;
 
   color: $color-accent;
   background: rgba($color-accent-strong, 0.1);
+  font-size: 1.25rem;
 
-  font-size: 1.375rem;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), background 250ms ease, border-color 250ms ease;
 
   svg {
-    width: 1.4375rem;
-    height: 1.4375rem;
+    width: 1.375rem;
+    height: 1.375rem;
   }
 }
 
 .tool-number {
   color: $color-muted;
-  font-size: 0.6875rem;
-  font-weight: 750;
-  letter-spacing: 0.0875rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
 }
+
+// ============================================================
+// CARD ACTION LINK FOOTER
+// ============================================================
 
 .tool-card-action {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: $space-3;
+  gap: 1rem;
 
   margin-top: auto;
-  padding-top: $space-6;
+  padding-top: 1.75rem;
 
-  color: $color-accent;
-  font-size: 0.8125rem;
-  font-weight: 700;
+  color: $color-text;
+  font-size: 0.875rem;
+  font-weight: 600;
 
   span {
-    font-size: 1.0625rem;
-    transition: transform 180ms ease;
+    font-size: 1.125rem;
+    color: $color-muted;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease;
   }
 }
 
-@media (max-width: 40rem) {
+// ============================================================
+// RESPONSIVE BREAKPOINTS
+// ============================================================
+
+@media (max-width: 48rem) {
   .tools-section {
     width: calc(100% - 2rem);
+    padding-top: 3rem;
   }
 
   .tools-grid {
     grid-template-columns: 1fr;
-    gap: $space-4;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
   }
 
   .tool-card {
-    min-height: 14rem;
-    padding: $space-5;
+    min-height: auto;
+    padding: 1.75rem;
+
+    h3 {
+      margin-top: 1.25rem;
+    }
   }
 }
 
+// ============================================================
+// REDUCED MOTION PREFERENCE
+// ============================================================
+
 @media (prefers-reduced-motion: reduce) {
   .tool-card,
+  .tool-card::before,
+  .tool-icon,
   .tool-card-action span {
-    transition: none;
+    transition: none !important;
   }
 }

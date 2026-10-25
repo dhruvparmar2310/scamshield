@@ -37,10 +37,18 @@
   text-decoration: none;
   white-space: nowrap;
 
+  transition: opacity 200ms ease, transform 200ms ease;
+
   &:focus-visible {
     outline: 0.125rem solid $color-accent;
     outline-offset: 0.25rem;
     border-radius: $radius-control;
+  }
+
+  img {
+    width: 14rem;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -71,31 +79,59 @@
 .header-nav {
   display: flex;
   align-items: center;
-  gap: clamp(0.875rem, 2vw, 1.875rem);
+  gap: clamp(0.5rem, 1.5vw, 1.25rem);
 
   color: $color-muted;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 
   a {
     position: relative;
     display: inline-flex;
     align-items: center;
     min-height: 2.75rem;
+    padding: 0 0.875rem;
 
-    color: inherit;
+    color: $color-muted;
+    font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
+    border-radius: 0.5rem;
 
-    transition: color 180ms ease;
+    transition: color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 200ms ease;
+
+    // Animated Accent Bottom Indicator Bar
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0.3rem;
+      left: 0.875rem;
+      right: 0.875rem;
+      height: 0.125rem;
+      border-radius: 99rem;
+      background: $color-accent;
+      box-shadow: 0 0 0.5rem rgba($color-accent, 0.5);
+      
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
+    }
 
     &:hover {
       color: $color-text;
+
+      &::after {
+        opacity: 0.5;
+        transform: scaleX(0.6);
+      }
     }
 
     &:focus-visible {
       outline: 0.125rem solid $color-accent;
       outline-offset: 0.25rem;
-      border-radius: 0.25rem;
+      border-radius: 0.375rem;
     }
 
     &.nav-link-active {
@@ -103,15 +139,13 @@
       font-weight: 600;
 
       &::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: -0.0625rem;
-        left: 0;
+        opacity: 1;
+        transform: scaleX(1);
+      }
 
-        height: 0.125rem;
-        border-radius: 99rem;
-        background: $color-accent;
+      &:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
       }
     }
   }
@@ -131,6 +165,12 @@
 
     color: $color-text;
     background: rgba($color-text, 0.035);
+    transition: background 200ms ease, border-color 200ms ease;
+
+    &:hover {
+      border-color: rgba($color-accent, 0.4);
+      background: rgba($color-text, 0.07);
+    }
   }
 }
 
@@ -157,15 +197,30 @@
   cursor: pointer;
 
   transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
 
-  &:hover,
-  &.is-open {
+  svg {
+    transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &:hover {
     border-color: rgba($color-accent, 0.4);
     background: $color-surface-raised;
     color: $color-accent;
+    transform: scale(1.03);
+  }
+
+  &.is-open {
+    border-color: rgba($color-accent, 0.5);
+    background: $color-surface-raised;
+    color: $color-accent;
+
+    svg {
+      transform: rotate(90deg);
+    }
   }
 
   &:focus-visible {
@@ -191,7 +246,7 @@
 
   .header-nav {
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: calc(100% + 0.625rem);
     left: 0;
     right: 0;
     z-index: 1001;
@@ -199,7 +254,7 @@
     display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: $space-1;
+    gap: 0.25rem;
 
     width: 100%;
     height: auto;
@@ -207,17 +262,22 @@
     overflow-y: auto;
 
     padding: $space-3;
-    border: 0.0625rem solid $color-border;
+    border: 0.0625rem solid rgba($color-border, 0.8);
     border-radius: $radius-card;
-    background: $color-surface;
-    box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.3);
+    background: rgba(18, 18, 26, 0.98); // Fallback solid dark background for safety
+    background: rgba($color-surface, 0.98);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1.25rem 3.5rem rgba(0, 0, 0, 0.5);
 
     &.is-open {
-      display: flex;
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      animation: premium-menu-in 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     a {
-      display: flex;
+      display: flex !important;
       align-items: center;
       flex-shrink: 0;
 
@@ -226,18 +286,34 @@
       padding: $space-3 $space-4;
 
       color: $color-muted;
-      font-size: 0.875rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
       text-decoration: none;
       white-space: normal;
+      border-radius: 0.5rem;
+
+      // Reset desktop pseudo elements on mobile
+      &::before,
+      &::after {
+        display: none !important;
+      }
+
+      transition: background 180ms ease, color 180ms ease, transform 150ms ease;
 
       &:hover {
         color: $color-text;
         background: $color-surface-raised;
+        transform: translateX(0.125rem);
       }
 
       &.nav-link-active {
         color: $color-accent;
-        background: rgba($color-accent-strong, 0.1);
+        background: rgba($color-accent-strong, 0.12);
+        font-weight: 600;
+
+        &:hover {
+          transform: none;
+        }
       }
     }
   }
@@ -257,6 +333,10 @@
   .brand {
     gap: $space-2;
     font-size: 1.0625rem;
+
+    img {
+      width: 11.5rem;
+    }
   }
 
   .brand-mark {
@@ -277,26 +357,25 @@
 }
 
 // ============================================================
-// ANIMATION
+// ANIMATIONS
 // ============================================================
 
-@keyframes scamshield-menu-in {
+@keyframes premium-menu-in {
   from {
     opacity: 0;
-    transform: translateY(-0.375rem);
+    transform: translateY(-0.5rem) scale(0.98);
   }
-
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   .header-nav,
   .header-nav a,
-  .header-menu-toggle {
+  .header-menu-toggle,
+  .brand {
     animation: none !important;
     transition: none !important;
   }

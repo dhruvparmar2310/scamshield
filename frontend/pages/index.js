@@ -2,6 +2,8 @@ import Head from "next/head";
 import Hero from "../components/home/Hero";
 import ToolCards from "../components/home/ToolCards";
 import PrivacyNotice from "../components/home/PrivacyNotice";
+import HowItWorks from "@/components/home/HowItWorks";
+import HomeFAQ from "@/components/home/HomeFAQ";
 
 export default function HomePage() {
   return (
@@ -20,6 +22,8 @@ export default function HomePage() {
       <div className="home-container">
         <Hero />
         <ToolCards />
+        <HowItWorks />
+        <HomeFAQ />
         <PrivacyNotice />
       </div>
     </>

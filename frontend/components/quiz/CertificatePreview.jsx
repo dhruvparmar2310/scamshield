@@ -62,12 +62,11 @@ export default function CertificatePreview ({
                     </p>
 
                     <h4 className="certificate-course">
-                        Fundamental Quiz of CyberSecurity Awareness
+                        Foundations of Cybersecurity Awareness
                     </h4>
 
                     <p className="certificate-description certificate-description-bottom">
-                        Demonstrating foundational knowledge of cyber threats,
-                        phishing, online scams, and safe digital practices.
+                        In recognition of successfully demonstrating cybersecurity awareness, identifying digital threats, and understanding safe online practices. This achievement marks a meaningful step toward a safer digital world and a continued journey of learning in cybersecurity.
                     </p>
                 </div>
 
